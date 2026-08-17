@@ -1,0 +1,34 @@
+name: Build Orbit from maor-system
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'
+permissions:
+  contents: write
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout maor-system
+        uses: actions/checkout@v4
+        with:
+          repository: meir7651231-ui/maor-system
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run build
+      - name: CNAME + deploy
+        run: |
+          echo 'orbit-il.com' > dist/CNAME
+          cd dist
+          touch .nojekyll
+          git init -b gh-pages
+          git config user.name "deploy-bot"
+          git config user.email "deploy@users.noreply.github.com"
+          git add -A
+          git commit -m "deploy orbit"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
