@@ -12,3 +12,4 @@ Redeploy trigger: 2026-09-05b (#479 version line + PWA update check)
 Redeploy trigger: 2026-09-06 (#480 prayer names + scroll memory)
 Redeploy trigger: 2026-09-06b (#481 member display names)
 Redeploy trigger: 2026-09-06c (#482 ayin region filter)
+- trigger 2026-09-06 · maor #483 segula panel
