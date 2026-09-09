@@ -14,3 +14,4 @@ Redeploy trigger: 2026-09-06b (#481 member display names)
 Redeploy trigger: 2026-09-06c (#482 ayin region filter)
 - trigger 2026-09-06 · maor #483 segula panel
 - trigger 2026-09-06 · maor #484 last-donation filter
+- trigger 2026-09-09 · maor #486 #487 (batch A+B)
