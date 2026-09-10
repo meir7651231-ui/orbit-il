@@ -16,3 +16,4 @@ Redeploy trigger: 2026-09-06c (#482 ayin region filter)
 - trigger 2026-09-06 · maor #484 last-donation filter
 - trigger 2026-09-09 · maor #486 #487 (batch A+B)
 - trigger 2026-09-10 · maor #489 segula active bar
+- trigger 2026-09-10 · maor #490 filter memory
