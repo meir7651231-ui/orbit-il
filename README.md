@@ -19,3 +19,4 @@ Redeploy trigger: 2026-09-06c (#482 ayin region filter)
 - trigger 2026-09-10 · maor #490 filter memory
 - trigger 2026-09-14 · maor #492 demo purge
 - trigger 2026-09-16 · maor #494 teachers csv + segula diag
+- trigger 2026-09-16 · maor #496 recur chooser
