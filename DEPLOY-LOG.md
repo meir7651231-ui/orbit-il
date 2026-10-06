@@ -13,3 +13,7 @@
 ## 2026-10-05T23:45Z · build from maor-system main 7bf8e7c (PR #504)
 - 🕯 שורש "40 יום לא נשמר דלוק": הדלקת-דגל בלוח-הבקרה לא הגיעה לענן (`merge:true` ממזג-עומק) — `writeOrgCloudConfig` ב-`mergeFields:['config']` + ratchets (אמולטור/vitest/e2e) + אבחון `raw core.taxreceipt`
 - אישור-בעלים 5.10: "תעלה" · "זה כבר באתר החי?"
+
+## 2026-10-06T05:33Z · build from maor-system main (PR #505, ea494f7)
+- 🕯 40 יום: הדגל "סגולת 40 יום" שולט בכפתור (לא "קבלת סעיף 46") — false ⇒ הודעה גלויה; מסחרי ⇒ COMMERCIAL_OFF; אבחון לפי הדגל
+- אישור-בעלים 6.10: "זה למעלה או לא ולמה" ⇒ מיזוג #505
