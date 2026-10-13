@@ -29,3 +29,7 @@
 ## 2026-10-06T16:00Z · build from maor-system main (PR #507, 5c7ebbb)
 - 🩹 "40 יום נדלק ונכבה לבד": לוח-הבקרה והאשף-המרוחק כתבו תצלום-מלא ודרסו זה את זה ⇒ כתיבה נקודתית פר-מפתח (`configPatchOps`+`patchOrgCloudConfig`, updateDoc+FieldPath+deleteField) + חותמת-כותב `configMeta` ⇒ שורת `config last write` באבחון-הדגלים
 - אישור-בעלים 6.10: מיזוג #507
+
+## 2026-10-13 · build from maor-system main dfe8a30
+- ⚡ ביצועי טאב-התורמים · שלב א׳ — 16,000 תורמים: הקשה בחיפוש 1.13s⇒0.27s, מיון 1.02s⇒0.15s, שמירה 5.4s⇒2.3s (מואט ×4); אפס שינוי-פלט
+- אישור-בעלים: "תעלה"
