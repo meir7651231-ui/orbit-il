@@ -12,8 +12,8 @@
   --ink: #eef1fb; --muted: rgba(238,241,251,.62); --faint: rgba(238,241,251,.56);
   --glass: rgba(255,255,255,.035); --glass-2: rgba(255,255,255,.05); --line: rgba(255,255,255,.12); --line-2: rgba(255,255,255,.18);
   --card-bg: linear-gradient(rgba(22,24,38,.82), rgba(11,12,20,.9));
-  --blue: #6ea8fe; --blue-2: #8fa8ff; --blue-soft: rgba(110,168,254,.18); --blue-glow: rgba(110,168,254,.24);
-  --btn: linear-gradient(#7d9bff, #5570ff);
+  --a-rgb: 110,168,254; --blue: #6ea8fe; --blue-2: #8fa8ff; --blue-soft: rgba(var(--a-rgb),.18); --blue-glow: rgba(var(--a-rgb),.24);
+  --btn: linear-gradient(#7d9bff, #5570ff); --vn1: #1a2340; --vn2: #0d1120; --vn3: #070a12; --vink: #eef1fb; --vacc: #8fa8ff;
   --ok: #7ee2a6; --ok-soft: rgba(70,200,120,.14); --soon: #f3c66b; --soon-soft: rgba(240,180,60,.14);
   --display: "Frank Ruhl Libre", David, "Noto Serif Hebrew", serif;
   --body: "Heebo", system-ui, sans-serif;
@@ -33,7 +33,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(9,11,20,.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
 .top .inner { display: flex; align-items: center; gap: 14px; padding-block: 12px 8px; }
 .brand { background: none; border: 0; padding: 0; cursor: pointer; display: flex; align-items: center; gap: 10px; flex: none; }
-.mark { width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center; background: linear-gradient(150deg, rgba(110,168,254,.3), rgba(110,168,254,.13)); border: 1px solid rgba(110,168,254,.36); box-shadow: 0 10px 34px -10px rgba(110,168,254,.6), inset 0 1px 0 rgba(255,255,255,.28); color: #fff; }
+.mark { width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center; background: linear-gradient(150deg, rgba(var(--a-rgb),.3), rgba(var(--a-rgb),.13)); border: 1px solid rgba(var(--a-rgb),.36); box-shadow: 0 10px 34px -10px rgba(var(--a-rgb),.6), inset 0 1px 0 rgba(255,255,255,.28); color: #fff; }
 .brand span.bt { display: grid; text-align: right; line-height: 1.1; }
 .brand b { font: 700 20px var(--display); white-space: nowrap; }
 .brand small { font-size: 10.5px; letter-spacing: .14em; color: var(--muted); font-weight: 500; }
@@ -41,8 +41,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .search svg { position: absolute; inset-inline-start: 14px; top: 50%; transform: translateY(-50%); color: var(--faint); pointer-events: none; }
 .search input { width: 100%; font: 15px var(--body); padding: 11px 42px 11px 16px; border-radius: 13px; border: 1px solid var(--line); background: var(--glass-2); color: var(--ink); }
 .search input::placeholder { color: var(--faint); }
-.search input:focus-visible { outline: none; border-color: rgba(110,168,254,.6); box-shadow: 0 0 0 3px rgba(110,168,254,.18); }
-.basket { flex: none; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(110,168,254,.5); background: var(--btn); color: #fff; border-radius: 13px; padding: 9px 14px; cursor: pointer; font-weight: 700; box-shadow: 0 12px 30px -14px rgba(110,168,254,.72), inset 0 1px 0 rgba(255,255,255,.35); }
+.search input:focus-visible { outline: none; border-color: rgba(var(--a-rgb),.6); box-shadow: 0 0 0 3px rgba(var(--a-rgb),.18); }
+.basket { flex: none; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(var(--a-rgb),.5); background: var(--btn); color: #fff; border-radius: 13px; padding: 9px 14px; cursor: pointer; font-weight: 700; box-shadow: 0 12px 30px -14px rgba(var(--a-rgb),.72), inset 0 1px 0 rgba(255,255,255,.35); }
 .basket i { font-style: normal; background: rgba(255,255,255,.22); border-radius: 999px; min-width: 22px; height: 22px; display: grid; place-items: center; font-size: 12px; font-weight: 700; padding: 0 6px; }
 .rail { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding: 2px 0 8px; scroll-behavior: smooth; }
 .railw { position: relative; }
@@ -56,7 +56,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (hover: none) { .rarr { display: none !important; } }
 .rail button { flex: none; border: 0; background: none; padding: 6px 11px; border-radius: 10px; cursor: pointer; font-size: 13.5px; color: var(--muted); white-space: nowrap; font-weight: 500; }
 .rail button:hover { color: var(--ink); background: var(--glass-2); }
-.rail button[aria-current="true"] { color: #fff; background: linear-gradient(rgba(110,168,254,.32), rgba(110,168,254,.18)); box-shadow: inset 0 1px 0 rgba(255,255,255,.22); font-weight: 600; }
+.rail button[aria-current="true"] { color: #fff; background: linear-gradient(rgba(var(--a-rgb),.32), rgba(var(--a-rgb),.18)); box-shadow: inset 0 1px 0 rgba(255,255,255,.22); font-weight: 600; }
 .basket .bi2 { display: none; }
 @media (max-width: 620px) { .brand span.bt { display: none; } .basket span { display: none; } .basket .bi2 { display: block; } .basket { padding: 9px 10px; } }
 main .inner { display: grid; gap: 60px; padding-block: 30px 90px; }
@@ -76,7 +76,7 @@ h2 { font: 700 clamp(25px, 3.4vw, 34px)/1.2 var(--display); letter-spacing: -.01
 .ask { font-weight: 600; margin-bottom: 10px; color: var(--ink); }
 .needs { display: flex; flex-wrap: wrap; gap: 8px; }
 .need { border: 1px solid var(--line); background: var(--glass-2); border-radius: 13px; padding: 8px 14px; cursor: pointer; font-size: 14.5px; color: var(--ink); }
-.need:hover, .need:focus-visible { border-color: rgba(110,168,254,.55); background: var(--blue-soft); outline: none; }
+.need:hover, .need:focus-visible { border-color: rgba(var(--a-rgb),.55); background: var(--blue-soft); outline: none; }
 .facts { display: flex; gap: 30px; margin-top: 28px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
 .facts b { display: block; font: 700 32px/1 var(--display); color: #fff; }
 .facts span { color: var(--muted); font-size: 12.5px; }
@@ -96,7 +96,7 @@ h2 { font: 700 clamp(25px, 3.4vw, 34px)/1.2 var(--display); letter-spacing: -.01
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
 .card { position: relative; text-align: right; border: 1px solid var(--line); background: var(--card-bg); border-radius: 18px; padding: 18px 18px 14px; cursor: pointer; display: grid; gap: 10px; align-content: start; min-width: 0; transition: border-color .15s, box-shadow .2s; color: var(--ink); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
 .card::before { content: ""; position: absolute; inset: 0 22px auto 22px; height: 2px; border-radius: 0 0 3px 3px; background: var(--cc); opacity: .9; box-shadow: 0 0 14px var(--cc); }
-.card:hover, .card:focus-visible { border-color: rgba(110,168,254,.4); box-shadow: 0 0 90px -30px var(--blue-glow), inset 0 1px 0 rgba(255,255,255,.1); outline: none; }
+.card:hover, .card:focus-visible { border-color: rgba(var(--a-rgb),.4); box-shadow: 0 0 90px -30px var(--blue-glow), inset 0 1px 0 rgba(255,255,255,.1); outline: none; }
 .card:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .grid, .shelf { align-items: start; }
 .card .crumb { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--cc); font-weight: 600; }
@@ -108,11 +108,11 @@ h2 { font: 700 clamp(25px, 3.4vw, 34px)/1.2 var(--display); letter-spacing: -.01
 .pill { font-size: 11.5px; padding: 2px 9px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
 .p-ok { background: var(--ok-soft); color: var(--ok); } .p-soon { background: var(--soon-soft); color: var(--soon); } .p-type { background: var(--glass-2); color: var(--muted); border: 1px solid var(--line); font-weight: 500; }
 .add { border: 1px solid var(--line); background: var(--glass-2); border-radius: 11px; padding: 5px 12px; font-size: 13.5px; font-weight: 600; cursor: pointer; white-space: nowrap; color: var(--ink); }
-.add:hover { border-color: rgba(110,168,254,.55); background: var(--blue-soft); }
-.add[aria-pressed="true"] { background: var(--btn); color: #fff; border-color: rgba(110,168,254,.5); }
+.add:hover { border-color: rgba(var(--a-rgb),.55); background: var(--blue-soft); }
+.add[aria-pressed="true"] { background: var(--btn); color: #fff; border-color: rgba(var(--a-rgb),.5); }
 .inds { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
 .ind { text-align: right; border: 1px solid var(--line); background: var(--glass); border-radius: 14px; padding: 14px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); }
-.ind:hover, .ind:focus-visible { border-color: rgba(110,168,254,.55); background: var(--blue-soft); outline: none; }
+.ind:hover, .ind:focus-visible { border-color: rgba(var(--a-rgb),.55); background: var(--blue-soft); outline: none; }
 .ind small { color: var(--faint); font-weight: 500; font-variant-numeric: tabular-nums; }
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
 .step { background: var(--card-bg); border: 1px solid var(--line); border-radius: 22px; padding: 22px; display: grid; gap: 6px; box-shadow: 0 0 90px -40px var(--blue-glow), inset 0 1px 0 rgba(255,255,255,.1); }
@@ -138,13 +138,36 @@ h2 { font: 700 clamp(25px, 3.4vw, 34px)/1.2 var(--display); letter-spacing: -.01
 .incl { display: grid; gap: 6px; } .incl h3 { font: 600 15.5px var(--body); margin-top: 4px; color: #fff; }
 .incl ul { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
 .incl li button { width: 100%; text-align: right; border: 1px solid var(--line); background: var(--glass); border-radius: 12px; padding: 8px 12px; cursor: pointer; font-size: 14px; color: var(--ink); }
-.incl li button:hover { border-color: rgba(110,168,254,.55); background: var(--blue-soft); }
+.incl li button:hover { border-color: rgba(var(--a-rgb),.55); background: var(--blue-soft); }
 .faq { display: grid; gap: 6px; } .faq h3 { font: 600 15.5px var(--body); margin-top: 4px; color: #fff; }
 .faq details { border: 1px solid var(--line); background: var(--glass); border-radius: 12px; padding: 9px 14px; }
 .faq summary { cursor: pointer; font-weight: 600; font-size: 14.5px; } .faq p { margin: 6px 0 2px; color: var(--muted); font-size: 14px; }
 .skip:focus { position: static; width: auto; height: auto; clip: auto; padding: 8px 12px; border-radius: 10px; background: var(--btn); color: #fff; grid-column: 1 / -1; justify-self: start; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .lhead { display: grid; gap: 6px; }
+[hidden] { display: none !important; }
+.verts { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+.vt { position: relative; text-align: right; border: 1px solid var(--line); background: var(--glass); border-radius: 14px; padding: 12px 14px; cursor: pointer; display: grid; gap: 2px; color: var(--ink); }
+.vt:hover, .vt:focus-visible { border-color: var(--vc); box-shadow: 0 0 0 1px var(--vc), 0 0 30px -12px var(--vc); outline: none; }
+.vt .e { font-size: 22px; } .vt b { font-size: 15px; } .vt small { color: var(--faint); font-size: 12.5px; }
+.vt .sw { display: flex; gap: 3px; margin-top: 6px; } .vt .sw i { width: 16px; height: 6px; border-radius: 3px; }
+.vt .nw { position: absolute; top: 10px; left: 10px; font-size: 11px; font-weight: 700; border-radius: 999px; padding: 1px 8px; background: var(--vc); color: #fff; }
+.vhero { border-radius: 24px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.1fr; gap: 22px; align-items: center; padding: 22px; background: radial-gradient(120% 100% at 72% 6%, var(--vn1), var(--vn2) 50%, var(--vn3)); color: var(--vink); border: 1px solid rgba(var(--a-rgb),.35); box-shadow: 0 30px 90px -40px rgba(var(--a-rgb),.55); }
+@media (max-width: 820px) { .vhero { grid-template-columns: 1fr; } }
+.vhero > * { min-width: 0; }
+.vhero .crumbs { color: var(--vink); opacity: .8; }
+.vhero .crumbs button { color: var(--vacc); }
+.vhero h1 { font: 700 clamp(28px, 4.2vw, 42px)/1.1 var(--display); margin: 4px 0; text-wrap: balance; color: var(--vink); }
+.vhero p { margin: 0 0 14px; opacity: .8; }
+.vhero .tn { display: inline-block; font-size: 12.5px; font-weight: 700; border: 1px solid rgba(var(--a-rgb),.5); color: var(--vacc); border-radius: 999px; padding: 2px 10px; margin-bottom: 8px; }
+.vhero figure { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(var(--a-rgb),.35); box-shadow: 0 24px 60px -30px rgba(0,0,0,.6); }
+.vhero figure img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; object-position: top; }
+.vhero .cta .btn.ghost { color: var(--vink); border-color: rgba(var(--a-rgb),.45); background: rgba(var(--a-rgb),.08); }
+a.btn { text-decoration: none; }
+.vchips { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.vchips button { border: 1px solid var(--line); background: var(--glass); color: var(--ink); border-radius: 999px; padding: 3px 10px; font-size: 13px; cursor: pointer; }
+.orbit-cta { border: 1px solid rgba(var(--a-rgb),.45); background: var(--blue-soft); border-radius: 14px; padding: 12px 14px; display: grid; gap: 8px; }
+.orbit-cta p { margin: 0; font-size: 14px; color: var(--muted); }
 .crumbs { font-size: 13.5px; color: var(--muted); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 .crumbs button { background: none; border: 0; padding: 0; color: var(--blue); cursor: pointer; }
 .lhead h1 { font: 700 clamp(28px, 4.4vw, 44px)/1.1 var(--display); color: #fff; text-wrap: balance; }
@@ -157,18 +180,18 @@ h2 { font: 700 clamp(25px, 3.4vw, 34px)/1.2 var(--display); letter-spacing: -.01
 .fgroup h4 { margin: 0 0 3px; font-size: 11.5px; color: var(--faint); font-weight: 500; letter-spacing: .12em; }
 .opt { display: flex; justify-content: space-between; gap: 8px; text-align: right; border: 0; background: none; padding: 5px 9px; border-radius: 9px; cursor: pointer; font-size: 14px; color: var(--ink); }
 .opt:hover { background: var(--glass-2); }
-.opt[aria-pressed="true"] { background: linear-gradient(rgba(110,168,254,.32), rgba(110,168,254,.18)); color: #fff; font-weight: 600; box-shadow: inset 0 1px 0 rgba(255,255,255,.2); }
+.opt[aria-pressed="true"] { background: linear-gradient(rgba(var(--a-rgb),.32), rgba(var(--a-rgb),.18)); color: #fff; font-weight: 600; box-shadow: inset 0 1px 0 rgba(255,255,255,.2); }
 .opt small { color: var(--faint); font-variant-numeric: tabular-nums; }
 .toolbar { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 14px; }
 .active { display: flex; gap: 6px; flex-wrap: wrap; }
-.chipx { border: 1px solid rgba(110,168,254,.4); background: var(--blue-soft); color: #fff; border-radius: 999px; padding: 4px 11px; font-size: 13px; cursor: pointer; }
+.chipx { border: 1px solid rgba(var(--a-rgb),.4); background: var(--blue-soft); color: #fff; border-radius: 999px; padding: 4px 11px; font-size: 13px; cursor: pointer; }
 .chipx::after { content: " ×"; opacity: .7; }
 .fbtn { display: none; border: 1px solid var(--line); background: var(--glass-2); border-radius: 11px; padding: 7px 14px; cursor: pointer; font-weight: 600; color: var(--ink); }
 @media (max-width: 900px) { .fbtn { display: inline-flex; } }
 .count { color: var(--muted); font-size: 13.5px; }
 .leafs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin-bottom: 14px; padding: 4px; border: 1px solid var(--line); background: rgba(255,255,255,.043); border-radius: 13px; }
 .leafs button { flex: none; border: 0; background: none; border-radius: 10px; padding: 6px 12px; cursor: pointer; font-size: 13.5px; white-space: nowrap; color: rgba(255,255,255,.66); font-weight: 600; }
-.leafs button[aria-pressed="true"] { background: linear-gradient(rgba(110,168,254,.32), rgba(110,168,254,.18)); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,.22); }
+.leafs button[aria-pressed="true"] { background: linear-gradient(rgba(var(--a-rgb),.32), rgba(var(--a-rgb),.18)); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,.22); }
 .more { display: block; margin: 24px auto 0; border: 1px solid var(--line); background: var(--glass-2); border-radius: 13px; padding: 10px 22px; cursor: pointer; font-weight: 600; color: var(--ink); }
 .empty { color: var(--muted); padding: 40px 0; text-align: center; }
 .scrim { position: fixed; inset: 0; background: rgba(4,6,12,.66); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); z-index: 40; }
@@ -186,20 +209,20 @@ h2 { font: 700 clamp(25px, 3.4vw, 34px)/1.2 var(--display); letter-spacing: -.01
 .facts2 div { display: flex; justify-content: space-between; gap: 12px; }
 .facts2 span { color: var(--muted); }
 .cta { display: flex; gap: 8px; flex-wrap: wrap; }
-.btn { border: 1px solid rgba(110,168,254,.5); background: var(--btn); color: #fff; border-radius: 15px; padding: 12px 20px; font-weight: 700; cursor: pointer; font-size: 15px; box-shadow: 0 16px 42px -14px rgba(110,168,254,.72), inset 0 1px 0 rgba(255,255,255,.4); }
+.btn { border: 1px solid rgba(var(--a-rgb),.5); background: var(--btn); color: #fff; border-radius: 15px; padding: 12px 20px; font-weight: 700; cursor: pointer; font-size: 15px; box-shadow: 0 16px 42px -14px rgba(var(--a-rgb),.72), inset 0 1px 0 rgba(255,255,255,.4); }
 .btn { text-decoration: none; display: inline-flex; align-items: center; }
 .btn.ghost { background: var(--glass-2); color: var(--ink); border: 1px solid var(--line); font-weight: 600; box-shadow: none; }
 .rel { display: grid; gap: 6px; }
 .rel h3 { font: 600 15.5px var(--body); margin-top: 4px; color: #fff; }
 .rel button { text-align: right; border: 1px solid var(--line); background: var(--glass); border-radius: 13px; padding: 10px 14px; cursor: pointer; font-size: 14.5px; color: var(--ink); }
-.rel button:hover { border-color: rgba(110,168,254,.55); background: var(--blue-soft); }
+.rel button:hover { border-color: rgba(var(--a-rgb),.55); background: var(--blue-soft); }
 .blist { display: grid; gap: 8px; }
 .bi { display: flex; justify-content: space-between; gap: 10px; align-items: center; border: 1px solid var(--line); background: var(--glass); border-radius: 13px; padding: 10px 14px; }
 .bi button { border: 0; background: none; color: var(--muted); cursor: pointer; text-decoration: underline; flex: none; }
 .lead-form { display: grid; gap: 8px; }
 .lead-form label { display: grid; gap: 4px; font-size: 13.5px; color: var(--muted); }
 .lead-form input, .lead-form textarea { font: 15px var(--body); color: var(--ink); background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; direction: rtl; }
-.lead-form input:focus-visible, .lead-form textarea:focus-visible { outline: none; border-color: rgba(110,168,254,.6); box-shadow: 0 0 0 3px rgba(110,168,254,.18); }
+.lead-form input:focus-visible, .lead-form textarea:focus-visible { outline: none; border-color: rgba(var(--a-rgb),.6); box-shadow: 0 0 0 3px rgba(var(--a-rgb),.18); }
 textarea#sum { width: 100%; min-height: 160px; font: 14px/1.6 var(--body); border: 1px solid var(--line); border-radius: 13px; padding: 12px; background: rgba(255,255,255,.04); color: var(--ink); direction: rtl; }
 .note { font-size: 13.5px; color: var(--muted); margin: 0; }
 footer { border-top: 1px solid var(--line); padding-top: 22px; color: var(--faint); font-size: 13.5px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
@@ -260,7 +283,11 @@ const CC = k => (CATS.find(c => c[0] === k) || [0, 0, "#a9b4c8"])[2];
 const icon = (k, s = 22) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k] || ICONS["דוחות ונתונים"]}</svg>`;
 const avail = x => x.v ? ["זמין עכשיו", "ok"] : ["בקרוב", "soon"];
 const byRank = (a, b) => (b.v - a.v) || (b.c - a.c);
-const BLANK = { k: "", s: "", f: "", a: "", ty: "", ind: "", ft: "", av: "", adv: false, g: 0, shown: 36 };
+const BLANK = { k: "", s: "", f: "", a: "", ty: "", ind: "", ft: "", av: "", adv: false, g: 0, vert: "", shown: 36 };
+let VERTS = [];
+const VB = id => VERTS.find(v => v.id === id);
+const inVert = (v, x) => v.rec.includes(x.i) || x.i === v.sig || v.re.test(x.n + " " + x.d);
+const vertsOf = x => VERTS.filter(v => v.rec.includes(x.i) || x.i === v.sig);
 let D = [], BY = new Map(), cart = [], st = { view: "home", ...BLANK };
 try { cart = JSON.parse(localStorage.getItem("pub-cart") || "[]"); } catch (e) { cart = []; }
 const save = () => { try { localStorage.setItem("pub-cart", JSON.stringify(cart)); } catch (e) {} $("bn").textContent = cart.length; };
@@ -298,7 +325,6 @@ function home() {
   const sys = D.filter(x => x.c >= 4 && x.v).sort(byRank);
   const hero = [sys.find(x => /Orbit/.test(x.n)), ...sys.filter(x => !/Orbit/.test(x.n))].filter(Boolean).slice(0, 3);
   const feat = [hero[0], ...hero, ...sys].find(x => x && x.img);
-  const inds = {}; D.forEach(x => (x.ind || []).forEach(i => inds[i] = (inds[i] || 0) + 1));
   $("view").innerHTML = `
   <section class="hero">
     <div>
@@ -315,8 +341,8 @@ function home() {
     <div class="cats">${CATS.map(([k, d, c]) => `<button class="cat" data-k="${esc(k)}" style="--cc:${c}"><span class="ico">${icon(k)}</span><h3>${esc(k)}</h3><p>${esc(d)}</p><small>${nsol(D.filter(x => x.k === k).length)}</small></button>`).join("")}</div></section>
   <section><div class="sec-head"><div><span class="eyebrow">הכל במקום אחד</span><h2>מערכות ופתרונות מתקדמים</h2><p>מערכות שלמות שמחליפות כמה כלים נפרדים.</p></div><button class="textlink" data-adv>לכולם ›</button></div>
     <div class="shelf">${sys.slice(0, 16).map(card).join("")}</div></section>
-  <section><div class="sec-head"><div><span class="eyebrow">לפי סוג העסק</span><h2>פתרונות לענף שלכם</h2></div></div>
-    <div class="inds">${Object.entries(inds).sort((a, b) => b[1] - a[1]).map(([i, n]) => `<button class="ind" data-ind="${esc(i)}">${esc(i)}<small>${fmt(n)}</small></button>`).join("")}</div></section>
+  <section><div class="sec-head"><div><span class="eyebrow">לפי סוג העסק</span><h2>פתרונות לענף שלכם</h2><p>לכל ענף מערכת בשפה ובצבעים שלו, ופתרונות שנבחרו בשבילו.</p></div></div>
+    <div class="verts">${VERTS.map(v => `<button class="vt" data-vert="${v.id}" style="--vc:${v.th.a}">${v.new ? '<span class="nw">חדש</span>' : ""}<span class="e">${v.emoji}</span><b>${esc(v.label)}</b><small>${esc(v.sub)}</small><span class="sw" aria-hidden="true"><i style="background:${v.th.n2}"></i><i style="background:${v.th.a}"></i><i style="background:${v.th.a2}"></i></span></button>`).join("")}</div></section>
   <section><div class="sec-head"><div><span class="eyebrow">פשוט</span><h2>איך זה עובד</h2></div></div>
     <div class="steps"><div class="step"><b>1</b><h3>בוחרים</h3><p>מחפשים לפי צורך, קטגוריה או ענף, וקוראים מה כל פתרון נותן.</p></div><div class="step"><b>2</b><h3>מוסיפים לבקשה</h3><p>לוחצים "הוסף" על כל מה שמעניין. אפשר לשלב כמה פתרונות יחד.</p></div><div class="step"><b>3</b><h3>מקבלים הצעה</h3><p>שולחים את הבקשה ומקבלים הצעה מותאמת לעסק שלכם.</p></div></div></section>
   <footer><span>חנות הפתרונות · פתרונות תוכנה לעסקים וארגונים</span><span>המחיר וההתאמה נקבעים בהצעה אישית.</span></footer>`;
@@ -325,7 +351,7 @@ function filt(skip) {
   const ws = words();
   return D.filter(x => (skip === "k" || !st.k || x.k === st.k) && (skip === "s" || !st.s || x.s === st.s) && (skip === "f" || !st.f || x.lf === st.f) &&
     (skip === "a" || !st.a || x.au.includes(st.a)) && (skip === "ty" || !st.ty || x.ty === st.ty) && (skip === "ind" || !st.ind || (x.ind || []).includes(st.ind)) &&
-    (skip === "ft" || !st.ft || (x.ft || []).includes(st.ft)) && (skip === "av" || !st.av || String(x.v) === st.av) && (!st.adv || x.c >= 4) && (!st.g || x.g === st.g) && (!ws.length || hit(x)));
+    (skip === "ft" || !st.ft || (x.ft || []).includes(st.ft)) && (skip === "av" || !st.av || String(x.v) === st.av) && (!st.adv || x.c >= 4) && (!st.g || x.g === st.g) && (!st.vert || inVert(VB(st.vert), x)) && (!ws.length || hit(x)));
 }
 function tally(arr, f) { const c = {}; arr.forEach(x => f(x).filter(Boolean).forEach(v => c[v] = (c[v] || 0) + 1)); return Object.entries(c).sort((a, b) => b[1] - a[1]); }
 function group(key, title, list, label = v => v) {
@@ -342,15 +368,22 @@ function filters() {
     group("av", "זמינות", tally(filt("av"), x => [String(x.v)]), v => v === "1" ? "זמין עכשיו" : "בקרוב")].join("");
 }
 function list() {
-  const rows = filt().sort(words().length ? (a, b) => (score(b) - score(a)) || byRank(a, b) : byRank);
+  const V = st.vert ? VB(st.vert) : null;
+  const vrank = x => V ? (x.i === V.sig ? 2 : V.rec.includes(x.i) ? 1 : 0) : 0;
+  const rows = filt().sort(words().length ? (a, b) => (score(b) - score(a)) || byRank(a, b) : (a, b) => (vrank(b) - vrank(a)) || byRank(a, b));
   const ws = words(), cat = CATS.find(c => c[0] === st.k);
-  const title = ws.length ? `תוצאות עבור "${$("q").value.trim()}"` : st.f || st.s || st.k || st.ind || st.a || (st.adv ? "מערכות ופתרונות מתקדמים" : st.g ? "משפחת " + (D.filter(x => x.g === st.g).sort(byRank)[0] || { n: "" }).n : "כל הפתרונות");
+  const title = V && !ws.length ? "פתרונות ל" + V.label : ws.length ? `תוצאות עבור "${$("q").value.trim()}"` : st.f || st.s || st.k || st.ind || st.a || (st.adv ? "מערכות ופתרונות מתקדמים" : st.g ? "משפחת " + (D.filter(x => x.g === st.g).sort(byRank)[0] || { n: "" }).n : "כל הפתרונות");
   const lab = { s: "", f: "", a: "מתאים ל: ", ind: "", ty: "", ft: "", av: "" };
-  const active = (st.k ? `<button class="chipx" data-clear="k">${esc(st.k)}</button>` : "") + ["s", "f", "a", "ind", "ty", "ft", "av"].filter(k => st[k]).map(k => `<button class="chipx" data-clear="${k}">${esc(k === "av" ? (st.av === "1" ? "זמין עכשיו" : "בקרוב") : lab[k] + st[k])}</button>`).join("") + (st.adv ? `<button class="chipx" data-clear="adv">מתקדמים בלבד</button>` : "") + (st.g ? `<button class="chipx" data-clear="g">משפחת פתרונות</button>` : "");
+  const active = (st.k ? `<button class="chipx" data-clear="k">${esc(st.k)}</button>` : "") + ["s", "f", "a", "ind", "ty", "ft", "av"].filter(k => st[k]).map(k => `<button class="chipx" data-clear="${k}">${esc(k === "av" ? (st.av === "1" ? "זמין עכשיו" : "בקרוב") : lab[k] + st[k])}</button>`).join("") + (st.adv ? `<button class="chipx" data-clear="adv">מתקדמים בלבד</button>` : "") + (st.g ? `<button class="chipx" data-clear="g">משפחת פתרונות</button>` : "") + (V ? `<button class="chipx" data-clear="vert">${esc(V.label)}</button>` : "");
   const leafs = st.s ? tally(filt("f"), x => [x.lf]) : [];
   const subs = st.k && !st.s ? tally(filt("s"), x => [x.s]) : [];
-  $("view").innerHTML = `
-  <div class="lhead"><div class="crumbs"><button data-home>חנות</button>${st.k ? ` › <button data-k="${esc(st.k)}">${esc(st.k)}</button>` : ""}${st.s ? ` › <span>${esc(st.s)}</span>` : ""}</div>
+  const head = V ? `<section class="vhero"><div><div class="crumbs"><button data-home>חנות</button> › <span>${esc(V.label)}</span></div>
+      <h1>${V.emoji} פתרונות ל${esc(V.label)}</h1><span class="tn">ערכת נושא: ${esc(V.th.name)}</span>
+      <p>${esc(V.sub)}. ${V.sig ? "מערכת ניהול שמדברת בשפה של התחום, ומעליה הפתרונות שנבחרו במיוחד בשבילו." : "הפתרונות שמתאימים לתחום, מוכנים לעבודה. ההתאמה נעשית בהצעה אישית."}</p>
+      <div class="cta">${V.sig ? `<a class="btn" href="${orbitLink(V.id, [])}" target="_blank" rel="noopener">פתיחת מערכת ל${esc(V.label)}</a><button class="btn ghost" data-open="${V.sig}">מה כלול במערכת</button>` : `<button class="btn" data-basket>בקשת הצעה לתחום</button>`}</div></div>
+      <figure><img src="${esc(V.img)}" alt="כך נראית המערכת ל${esc(V.label)}" width="1200" height="750"></figure></section>` : "";
+  $("view").innerHTML = head + `
+  <div class="lhead" ${V ? "hidden" : ""}><div class="crumbs"><button data-home>חנות</button>${st.k ? ` › <button data-k="${esc(st.k)}">${esc(st.k)}</button>` : ""}${st.s ? ` › <span>${esc(st.s)}</span>` : ""}</div>
     <h1>${esc(title)}</h1>${cat && !st.s ? `<p>${esc(cat[1])}</p>` : ""}</div>
   <div class="layout">
     <a class="sr skip" href="#" data-skip>דלגו לתוצאות</a>
@@ -363,7 +396,19 @@ function list() {
     </div>
   </div>`;
 }
-function render() { rail(); (st.view === "home" && !words().length ? home : list)(); if (!$("layer").innerHTML) syncHash(); railFade(); }
+function vtheme() {
+  const V = st.vert && st.view !== "home" ? VB(st.vert) : null, r = document.documentElement.style;
+  const keys = ["--a-rgb", "--blue", "--blue-2", "--btn", "--vn1", "--vn2", "--vn3", "--vink", "--vacc"];
+  if (!V) { keys.forEach(k => r.removeProperty(k)); return; }
+  const hx = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(","), dark = V.th.mode === "dark";
+  const acc = dark ? V.th.a : V.th.a2;
+  r.setProperty("--a-rgb", hx(acc)); r.setProperty("--blue", acc); r.setProperty("--blue-2", V.th.a2);
+  r.setProperty("--btn", `linear-gradient(${V.th.a2}, ${V.th.a})`);
+  r.setProperty("--vn1", V.th.n1); r.setProperty("--vn2", V.th.n2); r.setProperty("--vn3", V.th.n3);
+  r.setProperty("--vink", dark ? "#eef1fb" : "#1c1e26"); r.setProperty("--vacc", dark ? V.th.a2 : V.th.a);
+}
+const orbitLink = (v, picks) => "https://orbit-il.com/?signup=1" + (v ? "&v=" + v : "") + (picks.length ? "&picks=" + picks.join(",") : "");
+function render() { vtheme(); rail(); (st.view === "home" && !words().length ? home : list)(); if (!$("layer").innerHTML) syncHash(); railFade(); }
 function railFade() { const r = $("rail"), w = $("railw"), sl = Math.abs(r.scrollLeft), max = r.scrollWidth - r.clientWidth; w.classList.toggle("fs", sl > 4); w.classList.toggle("fe", max - sl > 4); }
 function go(o = {}) { st = { view: "list", ...BLANK, ...o }; render(); window.scrollTo(0, 0); }
 function openItem(id) {
@@ -380,6 +425,7 @@ function openItem(id) {
     <div class="tags"><span class="pill p-${ag}">${al}</span><span class="pill p-type">${esc(x.ty || LVN[x.c])}</span>${(x.ft || []).map(f => `<span class="pill p-type">${esc(f)}</span>`).join("")}</div>
     ${x.img ? `<figure class="pic"><img src="${esc(x.img)}" alt="${esc(x.alt || x.n)}" width="1200" height="750">${x.alt ? `<figcaption>${esc(x.alt)}</figcaption>` : ""}</figure>` : ""}
     <p class="lead">${esc(x.d)}</p>
+    ${vertsOf(x).length ? `<div class="vchips"><span class="note">מומלץ ל:</span>${vertsOf(x).map(v => `<button data-vert-close="${v.id}">${v.emoji} ${esc(v.label)}</button>`).join("")}</div>` : ""}
     <div class="facts2"><div><span>מתאים ל</span><b>${esc(x.au.join(", "))}</b></div>${x.ind && x.ind.length ? `<div><span>ענף</span><b>${esc(x.ind.join(", "))}</b></div>` : ""}<div><span>סוג</span><b>${esc(x.ty || "")}</b></div><div><span>רמת מורכבות</span><b>${LVN[x.c]}</b></div></div>
     <div class="cta"><button class="btn" data-add="${x.i}" aria-pressed="${on}">${on ? "נוסף לבקשה ✓" : "הוסף לבקשת הצעה"}</button><button class="btn ghost" data-basket>לבקשה שלי</button></div>
     ${fam.length ? `<div class="incl"><h3>${big ? "מה כלול במערכת" : "עובד יחד עם"}</h3><ul>${fam.slice(0, big ? 12 : 6).map(y => `<li><button data-open="${y.i}">${esc(y.n)}</button></li>`).join("")}</ul>${fam.length > (big ? 12 : 6) ? `<button class="textlink" data-fam="${x.g}">לכל ${fmt(fam.length + 1)} הרכיבים ›</button>` : ""}</div>` : ""}
@@ -413,6 +459,7 @@ function openBasket() {
       <label>טלפון<input id="lf-ph" type="tel" autocomplete="tel" inputmode="tel" value="${esc(LF.ph)}"></label>
       <label>ספרו לנו בקצרה על העסק<textarea id="lf-ab" rows="3">${esc(LF.ab)}</textarea></label>
     </div>
+    ${items.some(x => x.g === 1) ? `<div class="orbit-cta"><b>יש בבקשה ${items.filter(x => x.g === 1).length} פתרונות של מערכת הניהול Orbit</b><p>אפשר לפתוח מערכת עכשיו, כשהבחירות שלכם כבר מסומנות בהרשמה.</p><a class="btn" href="${orbitLink(st.vert && VB(st.vert) && VB(st.vert).sig ? st.vert : "", items.filter(x => x.g === 1).map(x => x.i))}" target="_blank" rel="noopener">פתיחת מערכת עם הבחירות שלי</a></div>` : ""}
     <p class="note">הבקשה מוכנה. העתיקו אותה ושלחו אלינו, או פתחו אותה ישירות במייל. נחזור עם הצעה מותאמת.</p>
     <textarea id="sum" readonly aria-label="תצוגת הבקשה">${esc(summary())}</textarea>
     <div class="cta"><button class="btn" id="copy">העתק את הבקשה</button><a class="btn ghost" id="mail" href="#">פתיחה במייל</a><button class="btn ghost" id="clear">נקה</button></div>` : `<p class="empty">עוד לא הוספתם פתרונות. לחצו "הוסף" על כל פתרון שמעניין אתכם.</p>`}
@@ -438,7 +485,7 @@ const sheetPush = () => { if (!NAV) try { history.pushState({ sheet: 1 }, "", lo
 function syncHash() { const h = viewHash(); setHash(h, h.startsWith("q=") && location.hash.startsWith("#q=") ? "" : "push"); }
 function viewHash() {
   const q = $("q").value.trim();
-  return q ? "q=" + encodeURIComponent(q) : st.view === "home" ? "" : st.adv ? "adv" : st.ind ? "n=" + encodeURIComponent(st.ind) : st.g ? "g" + st.g : st.k ? "c" + (CI(st.k) + 1) + (st.s ? "=" + encodeURIComponent(st.s) + (st.f ? "=" + encodeURIComponent(st.f) : "") : "") : "all";
+  return q ? "q=" + encodeURIComponent(q) : st.view === "home" ? "" : st.vert ? "v=" + st.vert : st.adv ? "adv" : st.ind ? "n=" + encodeURIComponent(st.ind) : st.g ? "g" + st.g : st.k ? "c" + (CI(st.k) + 1) + (st.s ? "=" + encodeURIComponent(st.s) + (st.f ? "=" + encodeURIComponent(st.f) : "") : "") : "all";
 }
 function fromHash(raw = location.hash) {
   let h = ""; try { h = decodeURIComponent(raw.slice(1)); } catch (e) {}
@@ -450,6 +497,7 @@ function fromHash(raw = location.hash) {
   if (h === "adv") { go({ adv: true }); return; }
   if (h === "all") { go(); return; }
   if (h.startsWith("n=")) { go({ ind: h.slice(2) }); return; }
+  if (h.startsWith("v=") && VB(h.slice(2))) { go({ vert: h.slice(2) }); return; }
   if ((m = h.match(/^g(\d+)$/))) { go({ g: +m[1] }); return; }
   if ((m = h.match(/^c(\d+)(?:=([^=]*))?(?:=(.*))?$/)) && CATS[m[1] - 1]) go({ k: CATS[m[1] - 1][0], s: m[2] || "", f: m[3] || "" });
 }
@@ -479,6 +527,8 @@ document.addEventListener("click", e => {
   const cd = t.closest(".card"); if (cd) { if (!$("layer").innerHTML) back = cd; openItem(+cd.dataset.id); return; }
   const kk = t.closest("[data-k]"); if (kk) { if (!kk.dataset.k) toHome(); else { $("q").value = ""; go({ k: kk.dataset.k }); } return; }
   const nd = t.closest(".need"); if (nd) { $("q").value = nd.dataset.q; go(); return; }
+  const vc = t.closest("[data-vert-close]"); if (vc) { closeLayer(true); $("q").value = ""; go({ vert: vc.dataset.vertClose }); return; }
+  const vt = t.closest("[data-vert]"); if (vt) { $("q").value = ""; go({ vert: vt.dataset.vert }); return; }
   const id2 = t.closest("[data-ind]"); if (id2) { $("q").value = ""; go({ ind: id2.dataset.ind }); return; }
   if (t.closest("[data-adv]")) { $("q").value = ""; go({ adv: true }); return; }
   if (t.closest("[data-home]") || t.closest("#home")) { toHome(); return; }
@@ -509,7 +559,8 @@ let qt; $("q").addEventListener("input", () => { clearTimeout(qt); qt = setTimeo
 })();
 save();
 const H0 = location.hash;
-Promise.all([fetch("store.json").then(r => r.json()), fetch("imgs.json").then(r => r.ok ? r.json() : []).catch(() => [])]).then(([d, im]) => {
+Promise.all([fetch("store.json").then(r => r.json()), fetch("imgs.json").then(r => r.ok ? r.json() : []).catch(() => []), fetch("verts.json").then(r => r.ok ? r.json() : []).catch(() => [])]).then(([d, im, vs]) => {
+  VERTS = vs.map(v => Object.assign(v, { re: new RegExp(v.pat) }));
   const IM = new Map(im.map(o => [o.i, o]));
   const uses = {};
   [...d].sort(byRank).forEach(x => { const o = IM.get(x.i); if (o && (uses[o.img] = (uses[o.img] || 0) + 1) <= 3) { x.img = o.img; x.alt = o.alt; } });
