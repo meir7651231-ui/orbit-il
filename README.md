@@ -67,27 +67,27 @@ curl -s https://orbit-il.com/version.json
 
 ## שאלות נפוצות
 
-<details><summary><b>מיזגתי ב-maor-system ולא רואה את השינוי באתר. למה?</b></summary>
+<details dir="rtl"><summary><b>מיזגתי ב-maor-system ולא רואה את השינוי באתר. למה?</b></summary>
 
 כי הבנייה האוטומטית רצה פעם ביום, ב-03:00 UTC. כדי להעלות עכשיו: Actions ← Run workflow, או רשומה חדשה ב-`DEPLOY-LOG.md` ודחיפה ל-`main` כאן. אחר כך בודקים ב-`version.json`.
 </details>
 
-<details><summary><b>הריצה ירוקה אבל האתר עדיין ישן.</b></summary>
+<details dir="rtl"><summary><b>הריצה ירוקה אבל האתר עדיין ישן.</b></summary>
 
 אחרי Build Orbit רצה עוד ריצה — `pages build and deployment` — שלוקחת כדקה נוספת. אחריה: רענון קשיח בדפדפן (האפליקציה היא PWA ועשויה להחזיק עותק שמור). `version.json` מראה מה באמת חי.
 </details>
 
-<details><summary><b>הריצה נכשלה. מה עושים?</b></summary>
+<details dir="rtl"><summary><b>הריצה נכשלה. מה עושים?</b></summary>
 
 כמעט תמיד הכשל הוא ב-`npm ci` או `npm run build` של `maor-system` — כלומר הבעיה ב-main שם. האתר החי לא נפגע: `gh-pages` מתעדכן רק כשהבנייה הצליחה. מתקנים ב-`maor-system` ומריצים שוב.
 </details>
 
-<details><summary><b>אפשר לערוך קובץ ישירות בענף gh-pages?</b></summary>
+<details dir="rtl"><summary><b>אפשר לערוך קובץ ישירות בענף gh-pages?</b></summary>
 
 לא. הענף נדרס בכל ריצה (push בכוח), כך שכל עריכה ידנית תיעלם עד הבוקר.
 </details>
 
-<details><summary><b>למה שינוי ב-README כאן מפעיל פריסה?</b></summary>
+<details dir="rtl"><summary><b>למה שינוי ב-README כאן מפעיל פריסה?</b></summary>
 
 ה-workflow רץ על כל push ל-`main`, בלי סינון לפי קבצים. זה גם מה שמאפשר "פריסה מיידית" — אבל המשמעות היא שכל מיזוג כאן מעלה לאוויר את `maor-system@main` של אותו רגע.
 </details>
