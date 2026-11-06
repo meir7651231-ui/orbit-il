@@ -11,7 +11,10 @@
 
 <h3 align="center">אין כאן קוד-מוצר. יש כאן מסלול אחד: מ-<code>maor-system@main</code> לאוויר, ב-orbit-il.com.</h3>
 
-<p align="center"><a href="#מה-הריפו-עושה"><b>מה הוא עושה</b></a> · <a href="#מתי-הוא-רץ">מתי רץ</a> · <a href="#הרצה-ידנית">הרצה ידנית</a> · <a href="#איך-מאמתים">אימות</a> · <a href="#מבנה-הריפו">מבנה</a> · <a href="#מה-אסור-לגעת">מה אסור</a></p>
+<p align="center"><a href="#מה-הריפו-עושה"><b>מה הוא עושה</b></a> · <a href="#מתי-הוא-רץ">מתי רץ</a> · <a href="#הרצה-ידנית">הרצה ידנית</a> · <a href="#איך-מאמתים">אימות</a> · <a href="#מה-הוא-לא-עושה">מה הוא לא עושה</a> · <a href="#שאלות-נפוצות">שאלות נפוצות</a> · <a href="#מבנה-הריפו">מבנה</a> · <a href="#מה-אסור-לגעת">מה אסור</a></p>
+
+<p align="center"><a href="https://orbit-il.com"><img src="assets/live-site.png" alt="צילום אמיתי של דף הבית הציבורי של orbit-il.com, במחשב ובנייד (6.11.2026)" width="100%"></a></p>
+<p align="center"><sub>זה מה שהריפו הזה מגיש — צילום אמיתי של orbit-il.com, במחשב ובנייד (6.11.2026).</sub></p>
 
 ---
 
@@ -35,6 +38,8 @@
 | 📌 `push` | כל דחיפה ל-`main` **בריפו הזה** | כך נעשית "פריסה מיידית": מוסיפים רשומה ל-[`DEPLOY-LOG.md`](DEPLOY-LOG.md) ודוחפים |
 | ▶️ `workflow_dispatch` | ידנית, מלשונית Actions | ראו למטה |
 
+<p align="center"><img src="assets/deploy-timeline.svg" alt="ציר-זמן: במסלול האוטומטי שינוי שמוזג ב-maor-system מחכה עד ריצת 03:00 UTC — עד 24 שעות; במסלול המיידי (push כאן או Run workflow) הוא חי תוך 2–3 דקות" width="100%"></p>
+
 > ⚠️ כל מיזוג ל-`main` כאן — **גם של שינוי תיעוד** — מפעיל בנייה ופריסה מחדש של האתר החי מ-`maor-system@main` הנוכחי.
 
 ## הרצה ידנית
@@ -52,6 +57,41 @@ curl -s https://orbit-il.com/version.json
 
 אם הזמן ב-`version.json` מאוחר מזמן תחילת הריצה — האתר החי מעודכן. אפשר גם להשוות לשעת הריצה האחרונה ב-[Actions](https://github.com/meir7651231-ui/orbit-il/actions).
 
+## מה הוא לא עושה
+
+- **אין כאן קוד-מוצר.** האפליקציה, הבדיקות והתיקונים — כולם ב-`maor-system`. שינוי באתר מתחיל שם, לא כאן.
+- **לא פורס מיד אחרי מיזוג ב-`maor-system`.** אין חיבור אוטומטי בין הריפואים: מיזוג שם עולה לאוויר רק בריצת 03:00 UTC הבאה — **עד 24 שעות** — אלא אם מפעילים פריסה מיידית כאן.
+- **לא בודק את האתר.** ה-workflow בונה ומפרסם; אין בו בדיקות, וריצה ירוקה אומרת שהבנייה עברה, לא שהאתר תקין.
+- **לא שומר גרסאות קודמות.** `gh-pages` נדרס בכל ריצה; חזרה לאחור = לבנות שוב מ-commit ישן יותר ב-`maor-system`.
+- **לא בונה מענף אחר.** תמיד `maor-system@main`, גם בהרצה ידנית.
+
+## שאלות נפוצות
+
+<details><summary><b>מיזגתי ב-maor-system ולא רואה את השינוי באתר. למה?</b></summary>
+
+כי הבנייה האוטומטית רצה פעם ביום, ב-03:00 UTC. כדי להעלות עכשיו: Actions ← Run workflow, או רשומה חדשה ב-`DEPLOY-LOG.md` ודחיפה ל-`main` כאן. אחר כך בודקים ב-`version.json`.
+</details>
+
+<details><summary><b>הריצה ירוקה אבל האתר עדיין ישן.</b></summary>
+
+אחרי Build Orbit רצה עוד ריצה — `pages build and deployment` — שלוקחת כדקה נוספת. אחריה: רענון קשיח בדפדפן (האפליקציה היא PWA ועשויה להחזיק עותק שמור). `version.json` מראה מה באמת חי.
+</details>
+
+<details><summary><b>הריצה נכשלה. מה עושים?</b></summary>
+
+כמעט תמיד הכשל הוא ב-`npm ci` או `npm run build` של `maor-system` — כלומר הבעיה ב-main שם. האתר החי לא נפגע: `gh-pages` מתעדכן רק כשהבנייה הצליחה. מתקנים ב-`maor-system` ומריצים שוב.
+</details>
+
+<details><summary><b>אפשר לערוך קובץ ישירות בענף gh-pages?</b></summary>
+
+לא. הענף נדרס בכל ריצה (push בכוח), כך שכל עריכה ידנית תיעלם עד הבוקר.
+</details>
+
+<details><summary><b>למה שינוי ב-README כאן מפעיל פריסה?</b></summary>
+
+ה-workflow רץ על כל push ל-`main`, בלי סינון לפי קבצים. זה גם מה שמאפשר "פריסה מיידית" — אבל המשמעות היא שכל מיזוג כאן מעלה לאוויר את `maor-system@main` של אותו רגע.
+</details>
+
 ## מבנה הריפו
 
 | קובץ / תיקייה | תפקיד |
@@ -61,7 +101,7 @@ curl -s https://orbit-il.com/version.json
 | ‏`README.md` · `README.en.md` | המסמך הזה, בעברית ובאנגלית |
 | ‏`CHANGELOG.md` | היסטוריית הריפו לפי חודשים |
 | ‏`SECURITY.md` | הרשאות, סודות ודיווח |
-| ‏`assets/` | ‏`hero.svg`, ‏`deploy-flow.svg` |
+| ‏`assets/` | ‏`hero.svg`, ‏`live-site.png`, ‏`deploy-flow.svg`, ‏`deploy-timeline.svg` |
 
 הענף `gh-pages` נוצר מחדש בכל ריצה (push בכוח) — אין לערוך בו ידנית.
 
