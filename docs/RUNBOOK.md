@@ -2,15 +2,19 @@
 
 # ספר-הפעלה · orbit-il.com
 
-כל מה שכאן נגזר מ-[`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml) ונבדק מול האתר החי ב-6.11.2026. ה-workflow: `Build Orbit from maor-system` — checkout ל-`maor-system@main` ← Node 22 ← `npm ci` ← `npm run build` ← `CNAME` + `.nojekyll` ← `git push -f` לענף `gh-pages`.
+כל מה שכאן נגזר מקובץ ה-workflow ‏[`deploy.yml`](../.github/workflows/deploy.yml) ונבדק מול האתר החי ב-6.11.2026. שלבי ה-workflow ‏`Build Orbit from maor-system`, לפי הסדר:
+
+```
+checkout maor-system@main → Node 22 → npm ci → npm run build → CNAME + .nojekyll → git push -f gh-pages
+```
 
 **ניווט:** [הרצה ידנית](#הרצה-ידנית) · [אימות](#אימות) · [אבחון כשל](#אבחון-כשל) · [האתר לא התעדכן](#הריצה-ירוקה-והאתר-ישן) · [חזרה לאחור](#חזרה-לאחור)
 
 ## הרצה ידנית
 
-1. [Actions ← Build Orbit from maor-system](https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml) ← **Run workflow** ← ענף `main` ← **Run workflow**.
-2. הריצה בונה תמיד את `maor-system@main` — אין בחירה של ענף או commit.
-3. אחריה רצה אוטומטית `pages build and deployment` (כדקה).
+1. נכנסים ל-[Actions ← Build Orbit from maor-system](https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml), לוחצים **Run workflow**, בוחרים ענף `main` ולוחצים שוב **Run workflow**.
+2. הריצה בונה תמיד את `maor-system@main` — אי אפשר לבחור ענף או commit אחר.
+3. אחריה רצה אוטומטית ריצת `pages build and deployment` (כדקה).
 
 דרך חלופית: רשומה חדשה ב-[`DEPLOY-LOG.md`](../DEPLOY-LOG.md) ודחיפה ל-`main` כאן — מפעיל את אותו workflow.
 
@@ -21,7 +25,7 @@ $ curl -s "https://orbit-il.com/version.json?t=$(date +%s)"
 {"id":"2026-11-06T10:02:48.801Z"}
 ```
 
-`id` הוא זמן הבנייה ב-UTC. אם הוא מאוחר מתחילת הריצה — הפריסה חיה.
+השדה `id` הוא זמן הבנייה ב-UTC. אם הוא מאוחר מתחילת הריצה — הפריסה חיה.
 
 ## אבחון כשל
 
@@ -40,15 +44,15 @@ $ curl -s "https://orbit-il.com/version.json?t=$(date +%s)"
 
 ## הריצה ירוקה והאתר ישן
 
-1. `pages build and deployment` עוד רצה — מחכים כדקה.
+1. ייתכן שריצת `pages build and deployment` עוד רצה — מחכים כדקה.
 2. מטמון: השרת מחזיר `cache-control: max-age=600` — עד 10 דקות. בודקים עם `?t=` כמו למעלה.
 3. האפליקציה היא PWA עם `sw.js` — הדפדפן יכול להחזיק עותק שמור. רענון קשיח או סגירה ופתיחה של האפליקציה.
 
 ## חזרה לאחור
 
-- **`gh-pages` לא שומר היסטוריה.** כל ריצה עושה `git init` חדש ו-`push -f`, כך שבענף יש תמיד commit אחד (`deploy orbit`). אין למה לחזור בו.
+- **הענף `gh-pages` לא שומר היסטוריה.** כל ריצה עושה `git init` חדש ו-`push -f`, כך שבענף יש תמיד commit אחד (`deploy orbit`). אין למה לחזור בו.
 - **הדרך היחידה בלי לשנות את ה-workflow:** `git revert` לשינוי הבעייתי ב-`maor-system@main`, ואז [הרצה ידנית](#הרצה-ידנית). האתר חוזר תוך 2–3 דקות.
-- בנייה מ-commit ישן ישירות דורשת שינוי ב-workflow (קלט `ref`) — לא קיים היום, ורק באישור הבעלים.
+- בנייה ישירה מ-commit ישן דורשת שינוי ב-workflow (קלט `ref`) — לא קיים היום, ורק באישור הבעלים.
 
 ---
 
