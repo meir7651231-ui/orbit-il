@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="ציר-זמן של ריצת פריסה: מסלול אוטומטי עד 24 שעות דרך cron 03:00 UTC, ומסלול מיידי של כ-2 דקות דרך push או הרצה ידנית / Deploy run timeline: automatic lane up to 24h via the 03:00 UTC cron, fast lane about 2 minutes via push or manual run">
+<style>.p{animation:p 2.4s ease-in-out infinite}@keyframes p{0%,100%{opacity:.45}50%{opacity:1}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<rect width="1280" height="420" rx="24" fill="#faf7f2"/>
+<text x="1240" y="46" text-anchor="end" fill="#16213e" font-size="24" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">ציר-הזמן של ריצת פריסה</text>
+<text x="40" y="46" fill="#5b6684" font-size="16" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">Deploy run timeline · when does a change reach orbit-il.com?</text>
+<text x="1240" y="112" text-anchor="end" fill="#4f7dff" font-size="19" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">מסלול אוטומטי</text>
+<text x="40" y="112" fill="#5b6684" font-size="14" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">automatic · schedule</text>
+<line x1="60" y1="140" x2="1220" y2="140" stroke="#d9dde8" stroke-width="4" stroke-linecap="round"/>
+<line x1="140" y1="140" x2="620" y2="140" stroke="#4f7dff" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 12"/>
+<line x1="620" y1="140" x2="800" y2="140" stroke="#4f7dff" stroke-width="6" stroke-linecap="round"/>
+<line x1="800" y1="140" x2="980" y2="140" stroke="#6b6bff" stroke-width="6" stroke-linecap="round"/>
+<line x1="980" y1="140" x2="1180" y2="140" stroke="#8a7dff" stroke-width="6" stroke-linecap="round"/>
+<circle cx="140" cy="140" r="9" fill="#faf7f2" stroke="#4f7dff" stroke-width="3"/>
+<text x="140" y="172" text-anchor="middle" fill="#16213e" font-size="15" font-weight="700" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif" direction="rtl">מיזוג ל-maor-system</text>
+<text x="140" y="192" text-anchor="middle" fill="#5b6684" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">merge → main</text>
+<circle cx="620" cy="140" r="9" fill="#faf7f2" stroke="#4f7dff" stroke-width="3"/>
+<text x="620" y="172" text-anchor="middle" fill="#16213e" font-size="15" font-weight="700" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">03:00 UTC</text>
+<text x="620" y="192" text-anchor="middle" fill="#5b6684" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">cron fires</text>
+<circle cx="800" cy="140" r="9" fill="#faf7f2" stroke="#6b6bff" stroke-width="3"/>
+<text x="800" y="172" text-anchor="middle" fill="#16213e" font-size="15" font-weight="700" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif" direction="rtl">בנייה</text>
+<text x="800" y="192" text-anchor="middle" fill="#5b6684" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">npm ci · build ~1m</text>
+<circle cx="980" cy="140" r="9" fill="#faf7f2" stroke="#8a7dff" stroke-width="3"/>
+<text x="980" y="172" text-anchor="middle" fill="#16213e" font-size="15" font-weight="700" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">gh-pages + Pages</text>
+<text x="980" y="192" text-anchor="middle" fill="#5b6684" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">push -f · deploy ~1m</text>
+<circle cx="1180" cy="140" r="11" fill="#4f7dff" class="p"/>
+<text x="1180" y="172" text-anchor="middle" fill="#4f7dff" font-size="15" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif" direction="rtl">חי ✓</text>
+<text x="1180" y="192" text-anchor="middle" fill="#5b6684" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">version.json</text>
+<rect x="1030" y="118" width="0" height="0"/>
+<text x="640" y="112" text-anchor="middle" fill="#4f7dff" font-size="15" font-family="ui-monospace,Menlo,Consolas,monospace">≤ 24h</text>
+<text x="1240" y="282" text-anchor="end" fill="#0f9f78" font-size="19" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">מסלול מיידי</text>
+<text x="40" y="282" fill="#5b6684" font-size="14" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">fast · push to main here / Run workflow</text>
+<line x1="60" y1="310" x2="1220" y2="310" stroke="#d9dde8" stroke-width="4" stroke-linecap="round"/>
+<line x1="140" y1="310" x2="400" y2="310" stroke="#0f9f78" stroke-width="6" stroke-linecap="round"/>
+<line x1="400" y1="310" x2="720" y2="310" stroke="#139c94" stroke-width="6" stroke-linecap="round"/>
+<line x1="720" y1="310" x2="1180" y2="310" stroke="#4fb8ff" stroke-width="6" stroke-linecap="round"/>
+<circle cx="140" cy="310" r="9" fill="#faf7f2" stroke="#0f9f78" stroke-width="3"/>
+<text x="140" y="342" text-anchor="middle" fill="#16213e" font-size="15" font-weight="700" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif" direction="rtl">רשומה ב-DEPLOY-LOG</text>
+<text x="140" y="362" text-anchor="middle" fill="#5b6684" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">push / Run workflow</text>
+<circle cx="400" cy="310" r="9" fill="#faf7f2" stroke="#139c94" stroke-width="3"/>
+<text x="400" y="342" text-anchor="middle" fill="#16213e" font-size="15" font-weight="700" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif" direction="rtl">בנייה</text>
+<text x="400" y="362" text-anchor="middle" fill="#5b6684" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">npm ci · build ~1m</text>
+<circle cx="720" cy="310" r="9" fill="#faf7f2" stroke="#4fb8ff" stroke-width="3"/>
+<text x="720" y="342" text-anchor="middle" fill="#16213e" font-size="15" font-weight="700" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">gh-pages + Pages</text>
+<text x="720" y="362" text-anchor="middle" fill="#5b6684" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">push -f · deploy ~1m</text>
+<circle cx="1180" cy="310" r="11" fill="#0f9f78" class="p"/>
+<text x="1180" y="342" text-anchor="middle" fill="#0f9f78" font-size="15" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif" direction="rtl">חי ✓</text>
+<text x="1180" y="362" text-anchor="middle" fill="#5b6684" font-size="11.5" font-family="ui-monospace,Menlo,Consolas,monospace">version.json</text>
+<rect x="1030" y="288" width="0" height="0"/>
+<text x="640" y="282" text-anchor="middle" fill="#0f9f78" font-size="15" font-family="ui-monospace,Menlo,Consolas,monospace">≈ 2–3 min</text>
+<text x="380" y="128" text-anchor="middle" fill="#5b6684" font-size="13" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif" direction="rtl">ממתינים לריצה הבאה</text>
+</svg>

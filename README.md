@@ -1,19 +1,26 @@
-<p align="left"><a href="README.en.md">English</a> · <b>עברית</b></p>
+<p align="center"><a href="https://orbit-il.com"><b>🚀 נסו עכשיו: orbit-il.com</b></a> · <a href="#צילום-האתר-החי">צילום</a> · <a href="README.en.md">English</a></p>
 
-<p align="center"><img src="assets/hero.svg" alt="אורביט · orbit-il.com — הריפו שבונה ומגיש את האתר החי" width="100%"></p>
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
+<img src="assets/hero.svg" alt="אורביט · orbit-il.com — הריפו שבונה ומגיש את האתר החי" width="100%">
+</picture>
+</p>
 
 <p align="center">
 <a href="https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml"><img src="https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml/badge.svg?branch=main" alt="Build Orbit from maor-system"></a>
-<a href="https://orbit-il.com"><img src="https://img.shields.io/badge/live-orbit--il.com-2fd4a4?style=flat-square&labelColor=0d1120" alt="live: orbit-il.com"></a>
+<a href="https://orbit-il.com/version.json"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Forbit-il.com%2Fversion.json&query=%24.id&label=live%20build&style=flat-square&labelColor=0d1120&color=2fd4a4" alt="live build: version.json"></a>
 <img src="https://img.shields.io/badge/build-daily%2003%3A00%20UTC-4f7dff?style=flat-square&labelColor=0d1120" alt="build: daily 03:00 UTC">
-<img src="https://img.shields.io/badge/host-GitHub%20Pages-8a7dff?style=flat-square&labelColor=0d1120" alt="host: GitHub Pages">
+<a href="https://github.com/meir7651231-ui/orbit-il/tree/gh-pages"><img src="https://img.shields.io/github/last-commit/meir7651231-ui/orbit-il/gh-pages?label=gh-pages&style=flat-square&labelColor=0d1120&color=8a7dff" alt="gh-pages: last deploy"></a>
 </p>
 
 <h3 align="center">אין כאן קוד-מוצר. יש כאן מסלול אחד: מ-<code>maor-system@main</code> לאוויר, ב-orbit-il.com.</h3>
 
-<p align="center"><a href="#מה-הריפו-עושה"><b>מה הוא עושה</b></a> · <a href="#מתי-הוא-רץ">מתי רץ</a> · <a href="#הרצה-ידנית">הרצה ידנית</a> · <a href="#איך-מאמתים">אימות</a> · <a href="#מה-הוא-לא-עושה">מה הוא לא עושה</a> · <a href="#שאלות-נפוצות">שאלות נפוצות</a> · <a href="#מבנה-הריפו">מבנה</a> · <a href="#מה-אסור-לגעת">מה אסור</a></p>
+<p align="center"><a href="#מה-הריפו-עושה"><b>מה הוא עושה</b></a> · <a href="#מתי-הוא-רץ">מתי רץ</a> · <a href="#הרצה-ידנית">הרצה ידנית</a> · <a href="#אימות-פריסה-תוך-30-שניות">אימות</a> · <a href="#מה-הוא-לא-עושה">מה הוא לא עושה</a> · <a href="#שאלות-נפוצות">שאלות נפוצות</a> · <a href="docs/RUNBOOK.md">ספר-הפעלה</a> · <a href="#מבנה-הריפו">מבנה</a> · <a href="#מה-אסור-לגעת">מה אסור</a></p>
 
-<p align="center"><a href="https://orbit-il.com"><img src="assets/live-site.png" alt="צילום אמיתי של דף הבית הציבורי של orbit-il.com, במחשב ובנייד (6.11.2026)" width="100%"></a></p>
+### צילום האתר החי
+
+<p align="center"><a href="https://orbit-il.com"><img src="assets/live-site.jpg" alt="צילום אמיתי של דף הבית הציבורי של orbit-il.com, במחשב ובנייד (6.11.2026)" width="100%"></a></p>
 <p align="center"><sub>זה מה שהריפו הזה מגיש — צילום אמיתי של orbit-il.com, במחשב ובנייד (6.11.2026).</sub></p>
 
 ---
@@ -22,7 +29,12 @@
 
 הריפו הזה **בונה ומגיש את האתר החי [orbit-il.com](https://orbit-il.com)**. קוד האפליקציה עצמו יושב בריפו `meir7651231-ui/maor-system`; כאן יש רק את מסלול-הפריסה:
 
-<p align="center"><img src="assets/deploy-flow.svg" alt="זרימת הפריסה: טריגר, שליפת maor-system@main, בנייה ב-Node 22, דחיפה לענף gh-pages, GitHub Pages מגיש את orbit-il.com" width="100%"></p>
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="assets/deploy-flow-light.svg">
+<img src="assets/deploy-flow.svg" alt="זרימת הפריסה: טריגר, שליפת maor-system@main, בנייה ב-Node 22, דחיפה לענף gh-pages, GitHub Pages מגיש את orbit-il.com" width="100%">
+</picture>
+</p>
 
 1. **טריגר** — אחד משלושת המקורות למטה מפעיל את ה-workflow ‏`Build Orbit from maor-system`.
 2. **שליפת קוד** — `actions/checkout` מושך את `maor-system` מענף `main`.
@@ -38,7 +50,12 @@
 | 📌 `push` | כל דחיפה ל-`main` **בריפו הזה** | כך נעשית "פריסה מיידית": מוסיפים רשומה ל-[`DEPLOY-LOG.md`](DEPLOY-LOG.md) ודוחפים |
 | ▶️ `workflow_dispatch` | ידנית, מלשונית Actions | ראו למטה |
 
-<p align="center"><img src="assets/deploy-timeline.svg" alt="ציר-זמן: במסלול האוטומטי שינוי שמוזג ב-maor-system מחכה עד ריצת 03:00 UTC — עד 24 שעות; במסלול המיידי (push כאן או Run workflow) הוא חי תוך 2–3 דקות" width="100%"></p>
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="assets/deploy-timeline-light.svg">
+<img src="assets/deploy-timeline.svg" alt="ציר-זמן: במסלול האוטומטי שינוי שמוזג ב-maor-system מחכה עד ריצת 03:00 UTC — עד 24 שעות; במסלול המיידי (push כאן או Run workflow) הוא חי תוך 2–3 דקות" width="100%">
+</picture>
+</p>
 
 > ⚠️ כל מיזוג ל-`main` כאן — **גם של שינוי תיעוד** — מפעיל בנייה ופריסה מחדש של האתר החי מ-`maor-system@main` הנוכחי.
 
@@ -48,14 +65,18 @@
 2. לוחצים **Run workflow** ← ענף `main` ← **Run workflow**.
 3. מחכים לוי ירוק (כדקה), ואחריו לריצת `pages build and deployment` (עוד כדקה).
 
-## איך מאמתים
+## אימות פריסה תוך 30 שניות
 
-```bash
-curl -s https://orbit-il.com/version.json
-# {"id":"2026-11-06T10:02:48.801Z"}  ← זמן הבנייה האחרונה (UTC)
+```console
+$ curl -s "https://orbit-il.com/version.json?t=$(date +%s)"
+{"id":"2026-11-06T10:02:48.801Z"}
 ```
 
-אם הזמן ב-`version.json` מאוחר מזמן תחילת הריצה — האתר החי מעודכן. אפשר גם להשוות לשעת הריצה האחרונה ב-[Actions](https://github.com/meir7651231-ui/orbit-il/actions).
+<sub>פלט אמיתי, 6.11.2026. `id` = זמן הבנייה (UTC). `?t=` עוקף את המטמון: השרת מחזיר `cache-control: max-age=600`, כך שבלי זה אפשר לראות עד 10 דקות את הגרסה הקודמת.</sub>
+
+1. **הזמן ב-`id` מאוחר מתחילת הריצה ב-[Actions](https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml)?** — האתר החי מעודכן. ✅
+2. **לא?** — מחכים לסיום `pages build and deployment` (כדקה) ובודקים שוב.
+3. **ועדיין לא?** — [ספר-ההפעלה ← אבחון כשל](docs/RUNBOOK.md#אבחון-כשל).
 
 ## מה הוא לא עושה
 
@@ -101,7 +122,10 @@ curl -s https://orbit-il.com/version.json
 | ‏`README.md` · `README.en.md` | המסמך הזה, בעברית ובאנגלית |
 | ‏`CHANGELOG.md` | היסטוריית הריפו לפי חודשים |
 | ‏`SECURITY.md` | הרשאות, סודות ודיווח |
-| ‏`assets/` | ‏`hero.svg`, ‏`live-site.png`, ‏`deploy-flow.svg`, ‏`deploy-timeline.svg` |
+| ‏`CONTRIBUTING.md` | איך מציעים שינוי בריפו הזה |
+| ‏`docs/RUNBOOK.md` | ספר-הפעלה: הרצה ידנית, אבחון כשל, חזרה לאחור |
+| ‏`.github/ISSUE_TEMPLATE/` · ‏`.github/pull_request_template.md` | תבניות ל-issue ול-PR (לא נוגעות ב-workflows) |
+| ‏`assets/` | איורים (גרסה כהה + `-light`) וצילום האתר החי |
 
 הענף `gh-pages` נוצר מחדש בכל ריצה (push בכוח) — אין לערוך בו ידנית.
 
@@ -146,4 +170,4 @@ Redeploy trigger: 2026-09-06c (#482 ayin region filter)
 
 ---
 
-<p align="center"><sub><a href="CHANGELOG.md">CHANGELOG</a> · <a href="SECURITY.md">SECURITY</a> · <a href="DEPLOY-LOG.md">DEPLOY-LOG</a></sub></p>
+<p align="center"><sub><a href="docs/RUNBOOK.md">RUNBOOK</a> · <a href="CHANGELOG.md">CHANGELOG</a> · <a href="CONTRIBUTING.md">CONTRIBUTING</a> · <a href="SECURITY.md">SECURITY</a> · <a href="DEPLOY-LOG.md">DEPLOY-LOG</a></sub></p>

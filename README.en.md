@@ -1,19 +1,26 @@
-<p align="right"><b>English</b> · <a href="README.md">עברית</a></p>
+<p align="center"><a href="https://orbit-il.com"><b>🚀 Try it now: orbit-il.com</b></a> · <a href="#live-site-screenshot">Screenshot</a> · <a href="README.md">עברית</a></p>
 
-<p align="center"><img src="assets/hero.svg" alt="Orbit · orbit-il.com — the repo that builds and serves the live site" width="100%"></p>
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
+<img src="assets/hero.svg" alt="Orbit · orbit-il.com — the repo that builds and serves the live site" width="100%">
+</picture>
+</p>
 
 <p align="center">
 <a href="https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml"><img src="https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml/badge.svg?branch=main" alt="Build Orbit from maor-system"></a>
-<a href="https://orbit-il.com"><img src="https://img.shields.io/badge/live-orbit--il.com-2fd4a4?style=flat-square&labelColor=0d1120" alt="live: orbit-il.com"></a>
+<a href="https://orbit-il.com/version.json"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Forbit-il.com%2Fversion.json&query=%24.id&label=live%20build&style=flat-square&labelColor=0d1120&color=2fd4a4" alt="live build: version.json"></a>
 <img src="https://img.shields.io/badge/build-daily%2003%3A00%20UTC-4f7dff?style=flat-square&labelColor=0d1120" alt="build: daily 03:00 UTC">
-<img src="https://img.shields.io/badge/host-GitHub%20Pages-8a7dff?style=flat-square&labelColor=0d1120" alt="host: GitHub Pages">
+<a href="https://github.com/meir7651231-ui/orbit-il/tree/gh-pages"><img src="https://img.shields.io/github/last-commit/meir7651231-ui/orbit-il/gh-pages?label=gh-pages&style=flat-square&labelColor=0d1120&color=8a7dff" alt="gh-pages: last deploy"></a>
 </p>
 
 <h3 align="center">No product code here. One path only: from <code>maor-system@main</code> to live, at orbit-il.com.</h3>
 
-<p align="center"><a href="#what-it-does"><b>What it does</b></a> · <a href="#when-it-runs">When it runs</a> · <a href="#run-it-manually">Run manually</a> · <a href="#verify">Verify</a> · <a href="#what-it-does-not-do">What it does not do</a> · <a href="#faq">FAQ</a> · <a href="#layout">Layout</a> · <a href="#do-not-touch">Do not touch</a></p>
+<p align="center"><a href="#what-it-does"><b>What it does</b></a> · <a href="#when-it-runs">When it runs</a> · <a href="#run-it-manually">Run manually</a> · <a href="#verify-a-deploy-in-30-seconds">Verify</a> · <a href="#what-it-does-not-do">What it does not do</a> · <a href="#faq">FAQ</a> · <a href="docs/RUNBOOK.md">Runbook</a> · <a href="#layout">Layout</a> · <a href="#do-not-touch">Do not touch</a></p>
 
-<p align="center"><a href="https://orbit-il.com"><img src="assets/live-site.png" alt="A real screenshot of the public orbit-il.com home page, desktop and mobile (2026-11-06)" width="100%"></a></p>
+### Live site screenshot
+
+<p align="center"><a href="https://orbit-il.com"><img src="assets/live-site.jpg" alt="A real screenshot of the public orbit-il.com home page, desktop and mobile (2026-11-06)" width="100%"></a></p>
 <p align="center"><sub>This is what the repo serves — a real screenshot of orbit-il.com, desktop and mobile (2026-11-06).</sub></p>
 
 ---
@@ -22,7 +29,12 @@
 
 This repo **builds and serves the live site [orbit-il.com](https://orbit-il.com)**. The application code lives in `meir7651231-ui/maor-system`; this repo holds only the deploy path:
 
-<p align="center"><img src="assets/deploy-flow.svg" alt="Deploy flow: trigger, checkout maor-system@main, build on Node 22, push to gh-pages, GitHub Pages serves orbit-il.com" width="100%"></p>
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="assets/deploy-flow-light.svg">
+<img src="assets/deploy-flow.svg" alt="Deploy flow: trigger, checkout maor-system@main, build on Node 22, push to gh-pages, GitHub Pages serves orbit-il.com" width="100%">
+</picture>
+</p>
 
 1. **Trigger** — one of the three sources below starts the `Build Orbit from maor-system` workflow.
 2. **Checkout** — `actions/checkout` pulls `maor-system` at `main`.
@@ -38,7 +50,12 @@ This repo **builds and serves the live site [orbit-il.com](https://orbit-il.com)
 | 📌 `push` | every push to `main` **in this repo** | the "deploy now" path: add an entry to [`DEPLOY-LOG.md`](DEPLOY-LOG.md) and push |
 | ▶️ `workflow_dispatch` | manually, from the Actions tab | see below |
 
-<p align="center"><img src="assets/deploy-timeline.svg" alt="Timeline: on the automatic lane a change merged in maor-system waits for the 03:00 UTC run — up to 24 hours; on the fast lane (push here or Run workflow) it is live in 2–3 minutes" width="100%"></p>
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: light)" srcset="assets/deploy-timeline-light.svg">
+<img src="assets/deploy-timeline.svg" alt="Timeline: on the automatic lane a change merged in maor-system waits for the 03:00 UTC run — up to 24 hours; on the fast lane (push here or Run workflow) it is live in 2–3 minutes" width="100%">
+</picture>
+</p>
 
 > ⚠️ Every merge to `main` here — **documentation changes included** — rebuilds and redeploys the live site from the current `maor-system@main`.
 
@@ -48,14 +65,18 @@ This repo **builds and serves the live site [orbit-il.com](https://orbit-il.com)
 2. Click **Run workflow** → branch `main` → **Run workflow**.
 3. Wait for the green check (about a minute), then for the `pages build and deployment` run (another minute).
 
-## Verify
+## Verify a deploy in 30 seconds
 
-```bash
-curl -s https://orbit-il.com/version.json
-# {"id":"2026-11-06T10:02:48.801Z"}  ← time of the last build (UTC)
+```console
+$ curl -s "https://orbit-il.com/version.json?t=$(date +%s)"
+{"id":"2026-11-06T10:02:48.801Z"}
 ```
 
-If the time in `version.json` is later than the run's start, the live site is up to date. You can also compare it with the latest run in [Actions](https://github.com/meir7651231-ui/orbit-il/actions).
+<sub>Real output, 2026-11-06. `id` = build time (UTC). `?t=` skips the cache: the server sends `cache-control: max-age=600`, so without it you may see the previous version for up to 10 minutes.</sub>
+
+1. **Is the `id` later than the run's start in [Actions](https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml)?** — the live site is up to date. ✅
+2. **No?** — wait for `pages build and deployment` to finish (about a minute) and check again.
+3. **Still no?** — [Runbook → Diagnose a failure](docs/RUNBOOK.md#diagnose-a-failure).
 
 ## What it does not do
 
@@ -94,15 +115,17 @@ The workflow runs on every push to `main`, with no path filter. That is what mak
 
 ## Layout
 
-```
-orbit-il/
-├── .github/workflows/deploy.yml   ← the build & deploy path (owner approval to change)
-├── DEPLOY-LOG.md                  ← manual-deploy log; entry + push = deploy now
-├── README.md / README.en.md       ← this document
-├── CHANGELOG.md                   ← repo history by month
-├── SECURITY.md                    ← permissions, secrets, reporting
-└── assets/                        ← hero.svg, live-site.png, deploy-flow.svg, deploy-timeline.svg
-```
+| File / folder | Role |
+|---|---|
+| `.github/workflows/deploy.yml` | the build & deploy path (owner approval to change) |
+| `DEPLOY-LOG.md` | manual-deploy log; entry + push = deploy now |
+| `README.md` · `README.en.md` | this document, in Hebrew and English |
+| `CHANGELOG.md` | repo history |
+| `SECURITY.md` | permissions, secrets, reporting |
+| `CONTRIBUTING.md` | how to propose a change to this repo |
+| `docs/RUNBOOK.md` | runbook: manual run, diagnosing a failure, rollback |
+| `.github/ISSUE_TEMPLATE/` · `.github/pull_request_template.md` | issue and PR templates (they don't touch workflows) |
+| `assets/` | illustrations (dark + `-light`) and the live-site screenshot |
 
 `gh-pages` is recreated on every run (force push) — never edit it by hand.
 
@@ -113,8 +136,38 @@ orbit-il/
 - `DEPLOY-LOG.md` — a historical log; append only.
 - Direct pushes to `main` — they deploy. Work on a branch + PR.
 
-The pre-October trigger lines that used to live in this README are kept, unchanged, at the bottom of the [Hebrew README](README.md).
+<details>
+<summary>Old trigger history (Aug–Sep 2026)</summary>
+
+Until September 2026 a "deploy now" was done by adding a line to the README. The lines are kept here as they were; since October, entries go to [`DEPLOY-LOG.md`](DEPLOY-LOG.md).
+
+```
+Last manual deploy trigger: 2026-08-23 (plans.html go-live)
+Redeploy trigger: 2026-08-24 (remove plans.html)
+
+Redeploy trigger: 2026-09-03 (deep-audit #473 — orbit-il.com lagged 24h+ behind main; permanent fix pending owner: move custom domain to maor-system Pages)
+Redeploy trigger: 2026-09-03b (#474 leftovers)
+Redeploy trigger: 2026-09-03c (#475 swarm-b)
+Redeploy trigger: 2026-09-03d (#476 ayin board)
+Redeploy trigger: 2026-09-03e (#477 ayin align)
+Redeploy trigger: 2026-09-05 (#478 segula + board done)
+Redeploy trigger: 2026-09-05b (#479 version line + PWA update check)
+Redeploy trigger: 2026-09-06 (#480 prayer names + scroll memory)
+Redeploy trigger: 2026-09-06b (#481 member display names)
+Redeploy trigger: 2026-09-06c (#482 ayin region filter)
+- trigger 2026-09-06 · maor #483 segula panel
+- trigger 2026-09-06 · maor #484 last-donation filter
+- trigger 2026-09-09 · maor #486 #487 (batch A+B)
+- trigger 2026-09-10 · maor #489 segula active bar
+- trigger 2026-09-10 · maor #490 filter memory
+- trigger 2026-09-14 · maor #492 demo purge
+- trigger 2026-09-16 · maor #494 teachers csv + segula diag
+- trigger 2026-09-16 · maor #496 recur chooser
+- 2026-09-17 · build trigger · maor #498 (care-back memory)
+- 2026-09-23 · build trigger · maor #501 (segula default-on)
+```
+</details>
 
 ---
 
-<p align="center"><sub><a href="CHANGELOG.md">CHANGELOG</a> · <a href="SECURITY.md">SECURITY</a> · <a href="DEPLOY-LOG.md">DEPLOY-LOG</a></sub></p>
+<p align="center"><sub><a href="docs/RUNBOOK.md">RUNBOOK</a> · <a href="CHANGELOG.md">CHANGELOG</a> · <a href="CONTRIBUTING.md">CONTRIBUTING</a> · <a href="SECURITY.md">SECURITY</a> · <a href="DEPLOY-LOG.md">DEPLOY-LOG</a></sub></p>

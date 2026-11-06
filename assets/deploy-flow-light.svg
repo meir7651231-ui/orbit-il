@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="330" viewBox="0 0 1280 330" role="img" aria-label="זרימת הפריסה: טריגר, שליפת maor-system, בנייה, דחיפה ל-gh-pages, האתר החי orbit-il.com / Deploy flow: trigger, checkout, build, push to gh-pages, live site">
+<style>.flow{stroke-dasharray:8 8;animation:d 1s linear infinite}@keyframes d{to{stroke-dashoffset:-16}}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7b8fc9"/></marker></defs>
+<rect width="1280" height="330" rx="24" fill="#faf7f2"/>
+<text x="1240" y="44" text-anchor="end" fill="#16213e" font-size="24" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">זרימת הפריסה</text>
+<text x="40" y="44" fill="#5b6684" font-size="16" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">Deploy flow · .github/workflows/deploy.yml</text>
+<rect x="40" y="80" width="200" height="150" rx="16" fill="#ffffff" stroke="#0f9f78" stroke-opacity=".7" stroke-width="2"/>
+<circle cx="216" cy="104" r="13" fill="#0f9f78"/><text x="216" y="109" text-anchor="middle" fill="#faf7f2" font-size="14" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">1</text>
+<text x="140.0" y="146" text-anchor="middle" fill="#16213e" font-size="24" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">טריגר</text>
+<text x="140.0" y="176" text-anchor="middle" fill="#56617f" font-size="12.5" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">push · cron 03:00 UTC · manual</text>
+<rect x="60" y="190" width="160" height="26" rx="8" fill="#faf7f2"/><text x="140.0" y="208" text-anchor="middle" fill="#0f9f78" font-size="14" font-family="ui-monospace,Menlo,Consolas,monospace">3 triggers</text>
+<line x1="244" y1="155.0" x2="284" y2="155.0" stroke="#7b8fc9" stroke-width="2.5" class="flow" marker-end="url(#ar)"/>
+<rect x="290" y="80" width="200" height="150" rx="16" fill="#ffffff" stroke="#4fb8ff" stroke-opacity=".7" stroke-width="2"/>
+<circle cx="466" cy="104" r="13" fill="#4fb8ff"/><text x="466" y="109" text-anchor="middle" fill="#faf7f2" font-size="14" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">2</text>
+<text x="390.0" y="146" text-anchor="middle" fill="#16213e" font-size="24" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">שליפת קוד</text>
+<text x="390.0" y="176" text-anchor="middle" fill="#56617f" font-size="12.5" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">checkout maor-system@main</text>
+<rect x="310" y="190" width="160" height="26" rx="8" fill="#faf7f2"/><text x="390.0" y="208" text-anchor="middle" fill="#4fb8ff" font-size="14" font-family="ui-monospace,Menlo,Consolas,monospace">actions/checkout</text>
+<line x1="494" y1="155.0" x2="534" y2="155.0" stroke="#7b8fc9" stroke-width="2.5" class="flow" marker-end="url(#ar)"/>
+<rect x="540" y="80" width="200" height="150" rx="16" fill="#ffffff" stroke="#4f7dff" stroke-opacity=".7" stroke-width="2"/>
+<circle cx="716" cy="104" r="13" fill="#4f7dff"/><text x="716" y="109" text-anchor="middle" fill="#faf7f2" font-size="14" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">3</text>
+<text x="640.0" y="146" text-anchor="middle" fill="#16213e" font-size="24" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">בנייה</text>
+<text x="640.0" y="176" text-anchor="middle" fill="#56617f" font-size="12.5" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">Node 22 · npm ci · npm run build</text>
+<rect x="560" y="190" width="160" height="26" rx="8" fill="#faf7f2"/><text x="640.0" y="208" text-anchor="middle" fill="#4f7dff" font-size="14" font-family="ui-monospace,Menlo,Consolas,monospace">dist/</text>
+<line x1="744" y1="155.0" x2="784" y2="155.0" stroke="#7b8fc9" stroke-width="2.5" class="flow" marker-end="url(#ar)"/>
+<rect x="790" y="80" width="200" height="150" rx="16" fill="#ffffff" stroke="#6b6bff" stroke-opacity=".7" stroke-width="2"/>
+<circle cx="966" cy="104" r="13" fill="#6b6bff"/><text x="966" y="109" text-anchor="middle" fill="#faf7f2" font-size="14" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">4</text>
+<text x="890.0" y="146" text-anchor="middle" fill="#16213e" font-size="24" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">פרסום</text>
+<text x="890.0" y="176" text-anchor="middle" fill="#56617f" font-size="12.5" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">CNAME + .nojekyll → push -f</text>
+<rect x="810" y="190" width="160" height="26" rx="8" fill="#faf7f2"/><text x="890.0" y="208" text-anchor="middle" fill="#6b6bff" font-size="14" font-family="ui-monospace,Menlo,Consolas,monospace">gh-pages</text>
+<line x1="994" y1="155.0" x2="1034" y2="155.0" stroke="#7b8fc9" stroke-width="2.5" class="flow" marker-end="url(#ar)"/>
+<rect x="1040" y="80" width="200" height="150" rx="16" fill="#ffffff" stroke="#8a7dff" stroke-opacity=".7" stroke-width="2"/>
+<circle cx="1216" cy="104" r="13" fill="#8a7dff"/><text x="1216" y="109" text-anchor="middle" fill="#faf7f2" font-size="14" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">5</text>
+<text x="1140.0" y="146" text-anchor="middle" fill="#16213e" font-size="24" font-weight="800" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">האתר החי</text>
+<text x="1140.0" y="176" text-anchor="middle" fill="#56617f" font-size="12.5" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">GitHub Pages</text>
+<rect x="1060" y="190" width="160" height="26" rx="8" fill="#faf7f2"/><text x="1140.0" y="208" text-anchor="middle" fill="#8a7dff" font-size="14" font-family="ui-monospace,Menlo,Consolas,monospace">orbit-il.com</text>
+<text x="640" y="282" text-anchor="middle" fill="#34405e" font-size="17" direction="rtl" font-family="'Heebo','Assistant','Segoe UI',Arial,sans-serif">אימות: הזמן ב-version.json הוא זמן הבנייה האחרונה</text>
+<text x="640" y="306" text-anchor="middle" fill="#0f9f78" font-size="15" font-family="ui-monospace,Menlo,Consolas,monospace">curl -s https://orbit-il.com/version.json → {"id":"&lt;build time&gt;"}</text>
+</svg>

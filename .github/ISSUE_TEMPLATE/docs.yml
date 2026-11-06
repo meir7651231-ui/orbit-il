@@ -1,0 +1,17 @@
+name: תיעוד · Documentation
+description: תיקון או הוספה ל-README / ספר-ההפעלה · Fix or add to the README / runbook
+title: "[docs] "
+body:
+  - type: input
+    id: where
+    attributes:
+      label: איפה · Where
+      placeholder: README.md › אימות פריסה
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: מה לא נכון או חסר · What's wrong or missing
+    validations:
+      required: true
