@@ -1,0 +1,38 @@
+name: בעיית פריסה · Deploy problem
+description: הריצה נכשלה או ש-orbit-il.com לא התעדכן · The run failed or orbit-il.com did not update
+title: "[deploy] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        לפני שפותחים: [ספר-ההפעלה](https://github.com/meir7651231-ui/orbit-il/blob/main/docs/RUNBOOK.md) · Before opening: see the [runbook](https://github.com/meir7651231-ui/orbit-il/blob/main/docs/RUNBOOK.md#diagnose-a-failure).
+  - type: input
+    id: run
+    attributes:
+      label: קישור לריצה · Run link
+      placeholder: https://github.com/meir7651231-ui/orbit-il/actions/runs/...
+    validations:
+      required: true
+  - type: dropdown
+    id: step
+    attributes:
+      label: איזה שלב נכשל · Which step failed
+      options:
+        - Checkout maor-system
+        - actions/setup-node
+        - npm ci
+        - npm run build
+        - CNAME + deploy
+        - pages build and deployment
+        - הריצה ירוקה, האתר ישן · Green run, old site
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: פלט version.json · version.json output
+      description: curl -s "https://orbit-il.com/version.json?t=$(date +%s)"
+  - type: textarea
+    id: details
+    attributes:
+      label: פרטים · Details
