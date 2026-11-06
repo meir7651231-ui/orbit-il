@@ -1,4 +1,84 @@
-# orbit-il
+<p align="left"><a href="README.en.md">English</a> · <b>עברית</b></p>
+
+<p align="center"><img src="assets/hero.svg" alt="אורביט · orbit-il.com — הריפו שבונה ומגיש את האתר החי" width="100%"></p>
+
+<p align="center">
+<a href="https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml"><img src="https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml/badge.svg?branch=main" alt="Build Orbit from maor-system"></a>
+<a href="https://orbit-il.com"><img src="https://img.shields.io/badge/live-orbit--il.com-2fd4a4?style=flat-square&labelColor=0d1120" alt="live: orbit-il.com"></a>
+<img src="https://img.shields.io/badge/build-daily%2003%3A00%20UTC-4f7dff?style=flat-square&labelColor=0d1120" alt="build: daily 03:00 UTC">
+<img src="https://img.shields.io/badge/host-GitHub%20Pages-8a7dff?style=flat-square&labelColor=0d1120" alt="host: GitHub Pages">
+</p>
+
+<h3 align="center">אין כאן קוד-מוצר. יש כאן מסלול אחד: מ-<code>maor-system@main</code> לאוויר, ב-orbit-il.com.</h3>
+
+<p align="center"><a href="#מה-הריפו-עושה"><b>מה הוא עושה</b></a> · <a href="#מתי-הוא-רץ">מתי רץ</a> · <a href="#הרצה-ידנית">הרצה ידנית</a> · <a href="#איך-מאמתים">אימות</a> · <a href="#מבנה-הריפו">מבנה</a> · <a href="#מה-אסור-לגעת">מה אסור</a></p>
+
+---
+
+## מה הריפו עושה
+
+הריפו הזה **בונה ומגיש את האתר החי [orbit-il.com](https://orbit-il.com)**. קוד האפליקציה עצמו יושב בריפו `meir7651231-ui/maor-system`; כאן יש רק את מסלול-הפריסה:
+
+<p align="center"><img src="assets/deploy-flow.svg" alt="זרימת הפריסה: טריגר, שליפת maor-system@main, בנייה ב-Node 22, דחיפה לענף gh-pages, GitHub Pages מגיש את orbit-il.com" width="100%"></p>
+
+1. **טריגר** — אחד משלושת המקורות למטה מפעיל את ה-workflow ‏`Build Orbit from maor-system`.
+2. **שליפת קוד** — `actions/checkout` מושך את `maor-system` מענף `main`.
+3. **בנייה** — Node 22, ‏`npm ci`, ‏`npm run build` → תיקיית `dist/`.
+4. **פרסום** — נכתבים `CNAME` (‏`orbit-il.com`) ו-`.nojekyll`, ו-`dist/` נדחף בכוח (force) לענף `gh-pages` של הריפו הזה.
+5. **האתר החי** — GitHub Pages מגיש את `gh-pages` בדומיין orbit-il.com.
+
+## מתי הוא רץ
+
+| טריגר | מתי | הערה |
+|---|---|---|
+| ⏰ `schedule` | כל יום ב-**03:00 UTC** (‏05:00/06:00 שעון ישראל) | מעלה אוטומטית את מה שמוזג ל-`maor-system@main` |
+| 📌 `push` | כל דחיפה ל-`main` **בריפו הזה** | כך נעשית "פריסה מיידית": מוסיפים רשומה ל-[`DEPLOY-LOG.md`](DEPLOY-LOG.md) ודוחפים |
+| ▶️ `workflow_dispatch` | ידנית, מלשונית Actions | ראו למטה |
+
+> ⚠️ כל מיזוג ל-`main` כאן — **גם של שינוי תיעוד** — מפעיל בנייה ופריסה מחדש של האתר החי מ-`maor-system@main` הנוכחי.
+
+## הרצה ידנית
+
+1. נכנסים ל-[**Actions ← Build Orbit from maor-system**](https://github.com/meir7651231-ui/orbit-il/actions/workflows/deploy.yml).
+2. לוחצים **Run workflow** ← ענף `main` ← **Run workflow**.
+3. מחכים לוי ירוק (כדקה), ואחריו לריצת `pages build and deployment` (עוד כדקה).
+
+## איך מאמתים
+
+```bash
+curl -s https://orbit-il.com/version.json
+# {"id":"2026-11-06T10:02:48.801Z"}  ← זמן הבנייה האחרונה (UTC)
+```
+
+אם הזמן ב-`version.json` מאוחר מזמן תחילת הריצה — האתר החי מעודכן. אפשר גם להשוות לשעת הריצה האחרונה ב-[Actions](https://github.com/meir7651231-ui/orbit-il/actions).
+
+## מבנה הריפו
+
+```
+orbit-il/
+├── .github/workflows/deploy.yml   ← מסלול הבנייה והפריסה (לא נוגעים בלי אישור)
+├── DEPLOY-LOG.md                  ← יומן פריסות ידניות; רשומה + push = פריסה מיידית
+├── README.md / README.en.md       ← המסמך הזה
+├── CHANGELOG.md                   ← היסטוריית הריפו לפי חודשים
+├── SECURITY.md                    ← הרשאות, סודות ודיווח
+└── assets/                        ← hero.svg, deploy-flow.svg
+```
+
+הענף `gh-pages` נוצר מחדש בכל ריצה (push בכוח) — אין לערוך בו ידנית.
+
+## מה אסור לגעת
+
+- `.github/workflows/` — שינוי שם עלול לשבור את האתר החי.
+- ענף `gh-pages` וקובץ `CNAME` — נכתבים אוטומטית; עריכה ידנית תידרס, ושינוי CNAME מנתק את הדומיין.
+- `DEPLOY-LOG.md` — יומן היסטורי; רק מוסיפים רשומות, לא מוחקים.
+- דחיפה ישירה ל-`main` — מפעילה פריסה. עבודה בענף + PR.
+
+<details>
+<summary>היסטוריית טריגרים ישנה (אוג׳–ספט׳ 2026)</summary>
+
+עד ספטמבר 2026 פריסה מיידית נעשתה בהוספת שורה לקובץ הזה. השורות נשמרות כאן כפי שהיו; מאז אוקטובר הרשומות נכתבות ל-[`DEPLOY-LOG.md`](DEPLOY-LOG.md).
+
+```
 Last manual deploy trigger: 2026-08-23 (plans.html go-live)
 Redeploy trigger: 2026-08-24 (remove plans.html)
 
@@ -22,3 +102,9 @@ Redeploy trigger: 2026-09-06c (#482 ayin region filter)
 - trigger 2026-09-16 · maor #496 recur chooser
 - 2026-09-17 · build trigger · maor #498 (care-back memory)
 - 2026-09-23 · build trigger · maor #501 (segula default-on)
+```
+</details>
+
+---
+
+<p align="center"><sub><a href="CHANGELOG.md">CHANGELOG</a> · <a href="SECURITY.md">SECURITY</a> · <a href="DEPLOY-LOG.md">DEPLOY-LOG</a></sub></p>
