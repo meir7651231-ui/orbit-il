@@ -1,0 +1,1 @@
+import{i as e}from"./cloud-D53Cf51U.js";export{e as donationPartitionDiff};
